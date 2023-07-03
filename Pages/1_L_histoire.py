@@ -28,20 +28,24 @@ lien = "../Images/Logo_Ubisoft.PNG"
 #image = Image.open(chemin_relatif_logo_ubisoft)
 st.image(lien, caption='Logo Ubisoft')
 
-st.markdown("""Pour notre projet nous avons décidé de nous focaliser sur l’éditeur UBISOFT. La raison :""" )
+st.header("Zakaria Nouioura, Massyl, Boubacar")
 
-st.markdown( """Ubisoft est une entreprise française de développement, d’édition et de distribution de jeux video. En 30 ans, elle est devenue l’un des leaders mondiaux du jeu video en développant des jeux connus dans le monde entier et utilisés par des millions de joueurs, comme Just Dance, Prince of Persia, Assassin’s Creed ou encore Lapins Crétins.""")
+st.write("""Bonjour à tous, nous sommes une équipe de data analyst et aujourd'hui nous allons nous interesser à la saga Assassin's Creed. 
+L'objectif sera ici d'analyser les commentaires des utilisateurs des différents jeux et voir commen Ubisoft à su se réinventer pour faire durer depuis maintenant 16 ans. Nous allons également vous expliquer pourquoi notre choix s'est porté sur cette suite de jeux et la maniere dont nous avons orienter nos recherches.
+Ubisoft est une société francaise qui a connu un incroyable croissance, en l'espace de 30 ans elle est devenu un des leader mondiaux du jeux video. Parmis la longue liste de jeux à succès on peut citer :
+- Assassin's Creed
+- Just Dance
+- Prince of Persia
+- Lapins Crétins
+- Tom Clancy
+- Watchdos
+- Farcry
 
-st.markdown( 
-"""
-- UBISOFT développe des jeux multi plateformes (Playstation , Nintendo, Xbox, Mobile, …)
-- UBISOFT est un developpeur ET éditeur qui utilise son propre moteur graphique
-- 6 franchises à succès , 11 titres , avec pour chacun plus de 10 millions d’unités vendus dans le monde
-- UBISOFT est un éditeur français à rayonnement internationale (analyse comparative avec d’autres boites mondiales ET  francaises , salariés, …)
-"""
-
-)
-
+Maintenant que vous connaissez Ubisoft, nous allons concentrer nos efforts sur la saga assassin's creed. 
+C'est une série de jeux vidéo historique d'action-aventure et d'infiltration en monde ouvert. 
+Le principe du jeu repose sur l'enlevement de Desmond Miles par multinationale Abstergo Industries, une entreprise pharmaceutique et forcé d'utiliser l'« Animus », une machine qui permet de décoder les mémoires génétiques 🧬 de son utilisateur stockées dans son ADN, offrant la possibilité de revivre les souvenirs de ses ancêtres sous forme de réalité virtuelle.
+Abstergo cherche à localiser plusieurs artefacts, appelées « Fragments d'Éden », façonnés par une race de précurseurs. 
+À l'intérieur de l'Animus, Desmond revit les souvenirs de plusieurs de ces ancêtres êtes vous pret à entamer votre premier voyage génétique ? """)
 
 if st.button('Vous voulez en savoir plus ?'):
     st.write('Why hello there')
@@ -72,3 +76,49 @@ Ubisoft se diversifie et crée une stratégie de développement transmedia :
     En 2011, la société crée sa propre société de production, Ubisoft Motion Pictures, pour porter les franchises de jeux vidéos à la télévision (Lapins Crétins) et au cinéma (Assassin’s Creed)""")
 else:
     st.write('')
+
+from streamlit_timeline import st_timeline
+
+items = [
+    {"id": 1, "content": "Assasin's creed", "start": "2007","style": "color: white; background-color: #180391; border-color: #180391;box-shadow: none;"},
+    {"id": 2, "content": "Assassin's Creed II", "start": "2009"},
+    {"id": 3, "content": "Assassin's Creed: Brotherhood", "start": "2010"},
+    {"id": 4, "content": "Assassin's Creed: Revelations", "start": "2011"},
+    {"id": 5, "content": "Assassin's Creed III", "start": "2012"},
+    {"id": 6, "content": "Assassin's Creed IV: Black Flag", "start": "2013"},
+    {"id": 7, "content": "Assassin's Creed: Rogue", "start": "2014"},
+    {"id": 8, "content": "Assassin's Creed: Unity", "start": "2014"},
+    {"id": 9, "content": "Assassin's Creed: Syndicate", "start": "2015"},
+    {"id": 10, "content": "Assassin's Creed Origins", "start": "2017"},
+    {"id": 11, "content": "Assassin's Creed Odyssey", "start": "2018"},
+    {"id": 12, "content": "Assassin's Creed Valhalla", "start": "2018"},
+    {"id": 13, "content": "Assassin's Creed Odyssey", "start": "2020"},
+    {"id": 14, "content": "Assassin's Creed: Mirage", "start": "2023"}]
+
+
+
+timeline = st_timeline(items, groups=[], options={}, height="300px")
+st.subheader("Selected item")
+chemin_contenu="..\DataFrame\Les_jeux.xlsx"
+df=pd.read_excel(chemin_contenu,index_col=None, header=1)
+
+if timeline["id"]==1:    
+    img_assassin1 = Image.open("..\Images\Assassin's creed 1.jpg")
+    st.image(img_assassin1,width=200) 
+    st.write(df.iloc[0,1])
+    st.header("Les retours")
+    st.write(df.iloc[0,3])
+    st.header("Quelques chiffres")
+    st.write("Le jeux à vendu :",df.iloc[0,4], "de copies et obtenu une note de",df.iloc[0,5],"sur Metactritic :sunglasses:")
+    st.header("Analyse des sentiments")
+elif timeline["id"]==2:    
+    st.header("L'histoire du jeu")
+    img_assassin2 = Image.open("..\Images\Assassin's Creed 2.jpg")
+    st.image(img_assassin2,width=200) 
+    st.write(df.iloc[1,1])
+    st.header("Les retours")
+    st.write(df.iloc[1,3])
+    st.header("Analyse des sentiments 😭")
+
+
+

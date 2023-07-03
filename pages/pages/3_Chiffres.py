@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import os
 import numpy as np 
+#git
 
 # recuperation du chemin relatif du fichier de répartition des salariés
 lien = r"..\DataFrame\Ubisoft_repartition_salaries_2022.xlsx"

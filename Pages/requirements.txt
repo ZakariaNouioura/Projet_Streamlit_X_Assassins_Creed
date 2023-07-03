@@ -2,3 +2,10 @@ openpyxl==3.1.2
 pandas==2.0.2
 Requests==2.31.0
 streamlit==1.23.1
+streamlit_timeline==0.0.2 
+streamlit-vis-timeline==0.3.0 
+
+matplotlib==3.7.1
+beautifulsoup4==4.12.2 
+
+regex==2023.6.3 
